@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Random Coloring Page</title>
+  <!-- Link to external CSS file -->
+  <link rel="stylesheet" href="genai.css" />
+</head>
+<body onload="showRandomOutline()">
+  <header>
+    <h1>Random AI Coloring Page</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="qualifications.html">Qualifications</a></li>
+        <li><a href="service.html">Service</a></li>
+        <li><a href="genai.html">AI Coloring</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="color-palette">
+    <p>Pick a color 🎨:</p>
+    <div class="color-box" style="background-color:#000000" onclick="setColor('#000000')" title="Black"></div>
+    <div class="color-box" style="background-color:#FF0000" onclick="setColor('#FF0000')" title="Red"></div>
+    <div class="color-box" style="background-color:#FFA500" onclick="setColor('#FFA500')" title="Orange"></div>
+    <div class="color-box" style="background-color:#FFFF00" onclick="setColor('#FFFF00')" title="Yellow"></div>
+    <div class="color-box" style="background-color:#008000" onclick="setColor('#008000')" title="Green"></div>
+    <div class="color-box" style="background-color:#0000FF" onclick="setColor('#0000FF')" title="Blue"></div>
+    <div class="color-box" style="background-color:#800080" onclick="setColor('#800080')" title="Purple"></div>
+    <div class="color-box" style="background-color:#FFC0CB" onclick="setColor('#FFC0CB')" title="Pink"></div>
+  </div>
+
+  <!-- Change Picture Button -->
+  <div class="button-container">
+    <button onclick="changeOutline()">🎲 Randomize Picture</button>
+  </div>
+
+  <!-- Container for SVG Outlines -->
+  <div id="svgContainer">
+    <!-- Outline 1: Flower -->
+    <svg class="outline" id="outline1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+      <title>Flower Outline</title>
+      <circle cx="150" cy="150" r="20" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+      <!-- Petals -->
+      <ellipse cx="150" cy="110" rx="20" ry="35" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+      <ellipse cx="150" cy="190" rx="20" ry="35" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+      <ellipse cx="110" cy="150" rx="35" ry="20" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+      <ellipse cx="190" cy="150" rx="35" ry="20" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+    </svg>
+
+    <!-- Outline 2: Butterfly -->
+    <svg class="outline" id="outline2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+      <title>Butterfly Outline</title>
+      <path d="M150,150 C100,50 50,100 50,150 C50,200 100,250 150,150" 
+            fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+      <path d="M150,150 C200,50 250,100 250,150 C250,200 200,250 150,150" 
+            fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+      <circle cx="150" cy="150" r="10" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+      <!-- Antennae -->
+      <line x1="150" y1="140" x2="150" y2="120" stroke="black" stroke-width="2" />
+      <line x1="150" y1="120" x2="140" y2="100" stroke="black" stroke-width="2" />
+      <line x1="150" y1="120" x2="160" y2="100" stroke="black" stroke-width="2" />
+    </svg>
+
+    <!-- Outline 3: House -->
+    <svg class="outline" id="outline3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+      <title>House Outline</title>
+      <polygon points="50,150 150,50 250,150" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+      <rect x="70" y="150" width="160" height="100" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+      <rect x="110" y="180" width="40" height="70" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+      <rect x="170" y="170" width="40" height="40" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+    </svg>
+
+    <!-- Outline 4: Tree -->
+    <svg class="outline" id="outline4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+      <title>Tree Outline</title>
+      <!-- Trunk -->
+      <rect x="130" y="180" width="40" height="70" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+      <!-- Leaves -->
+      <circle cx="150" cy="140" r="40" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+    </svg>
+
+    <!-- Outline 5: Fish -->
+    <svg class="outline" id="outline5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+      <title>Fish Outline</title>
+      <!-- Body -->
+      <ellipse cx="120" cy="150" rx="80" ry="50" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+      <!-- Tail -->
+      <polygon points="200,120 260,150 200,180" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+      <!-- Eye -->
+      <circle cx="80" cy="140" r="5" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+    </svg>
+
+    <!-- Outline 6: Car -->
+    <svg class="outline" id="outline6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+      <title>Car Outline</title>
+      <!-- Body -->
+      <rect x="50" y="130" width="200" height="60" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+      <!-- Roof -->
+      <polygon points="80,130 120,100 180,100 220,130" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+      <!-- Wheels -->
+      <circle cx="90" cy="190" r="20" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+      <circle cx="210" cy="190" r="20" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+    </svg>
+
+    <!-- Outline 7: Bird -->
+    <svg class="outline" id="outline7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+      <title>Bird Outline</title>
+      <!-- Body -->
+      <ellipse cx="150" cy="170" rx="50" ry="30" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+      <!-- Head -->
+      <circle cx="150" cy="120" r="20" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+      <!-- Wing -->
+      <path d="M125,160 C100,140 100,200 145,180 Z" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+      <!-- Beak -->
+      <polygon points="160,120 180,115 160,110" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+    </svg>
+
+    <!-- Outline 8: Star -->
+    <svg class="outline" id="outline8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+      <title>Star Outline</title>
+      <polygon 
+        points="
+          150,50
+          176,110
+          240,110
+          188,150
+          210,210
+          150,175
+          90,210
+          112,150
+          60,110
+          124,110
+        "
+        fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)"
+      />
+    </svg>
+
+    <!-- Outline 9: Cat -->
+    <svg class="outline" id="outline9" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+      <title>Cat Outline</title>
+      <!-- Head -->
+      <circle cx="150" cy="120" r="30" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+      <!-- Ears -->
+      <polygon points="130,90 140,60 150,90" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+      <polygon points="170,90 160,60 150,90" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+      <!-- Body -->
+      <ellipse cx="150" cy="180" rx="40" ry="30" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+      <!-- Tail -->
+      <path d="M190,180 C220,170 210,200 230,195" fill="none" stroke="black" stroke-width="5" onclick="fillShape(this)" />
+    </svg>
+
+    <!-- Outline 10: Dog -->
+    <svg class="outline" id="outline10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+      <title>Dog Outline</title>
+      <!-- Head -->
+      <circle cx="100" cy="120" r="30" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+      <!-- Ears -->
+      <ellipse cx="85" cy="90" rx="10" ry="20" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+      <ellipse cx="115" cy="90" rx="10" ry="20" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+      <!-- Body -->
+      <ellipse cx="160" cy="160" rx="60" ry="40" fill="white" stroke="black" stroke-width="2" onclick="fillShape(this)" />
+      <!-- Tail -->
+      <path d="M220,155 C250,140 250,180 230,170" fill="none" stroke="black" stroke-width="5" onclick="fillShape(this)" />
+    </svg>
+  </div>
+
+  <script>
+    // Track the currently selected color
+    let currentColor = '#000000';
+
+    // Called by clicking on a color swatch
+    function setColor(color) {
+      currentColor = color;
+    }
+
+    // Called by clicking on any SVG shape
+    function fillShape(element) {
+      element.setAttribute('fill', currentColor);
+    }
+
+    // List of all outline IDs
+    const outlines = [
+      "outline1","outline2","outline3","outline4","outline5",
+      "outline6","outline7","outline8","outline9","outline10"
+    ];
+
+    // Show exactly one of the outlines at random
+    function showRandomOutline() {
+      // Hide all outlines first
+      outlines.forEach(id => {
+        document.getElementById(id).style.display = 'none';
+      });
+
+      // Pick one at random and show it
+      const randomIndex = Math.floor(Math.random() * outlines.length);
+      document.getElementById(outlines[randomIndex]).style.display = 'inline-block';
+    }
+
+    // Called when user clicks "Change Picture" button
+    function changeOutline() {
+      showRandomOutline();
+    }
+  </script>
+
+</body>
+</html>
